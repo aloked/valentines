@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Shruuu 💖</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at top, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(18px);
+      border-radius: 24px;
+      padding: 50px 60px;
+      text-align: center;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+      position: relative;
+      max-width: 420px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: #2b2b2b;
+      margin-bottom: 40px;
+      line-height: 1.3;
+    }
+
+    .buttons {
+      position: relative;
+      height: 80px;
+    }
+
+    button {
+      padding: 14px 34px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: absolute;
+    }
+
+    #yes {
+      background: linear-gradient(135deg, #ff5f6d, #ffc371);
+      color: white;
+      left: 40px;
+      box-shadow: 0 10px 25px rgba(255, 95, 109, 0.45);
+    }
+
+    #yes:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(255, 95, 109, 0.6);
+    }
+
+    #no {
+      background: rgba(255,255,255,0.7);
+      color: #444;
+      left: 200px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .success {
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <h1>Shruuu,<br>will you be my Valentine? 💖</h1>
+
+    <div class="buttons">
+      <button id="yes">Yes 💕</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const card = document.getElementById("card");
+
+    noBtn.addEventListener("mouseenter", () => {
+      const cardRect = card.getBoundingClientRect();
+      const maxX = cardRect.width - noBtn.offsetWidth;
+      const maxY = 60;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+
+    document.getElementById("yes").addEventListener("click", () => {
+      card.innerHTML = `
+        <div class="success">
+          <h1>Yay! 💕</h1>
+          <p style="font-size:18px;">You just made my Valentine’s Day perfect, Shruuu ❤️</p>
+        </div>
+      `;
+    });
+  </script>
+
+</body>
+</html>
